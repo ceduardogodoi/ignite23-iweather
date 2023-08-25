@@ -1,7 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react-native';
 
 import { SelectList } from '@components/SelectList';
-import { View } from 'react-native';
 
 describe('Component: SelectList', () => {
   it('should return the selected city details', () => {
