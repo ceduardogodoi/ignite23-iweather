@@ -27,7 +27,9 @@ describe('Component: SelectList', () => {
       />
     );
 
-    const selectedCity = screen.getByText('Campinas');
+    const selectedCity = screen.getByText('Campo', {
+      exact: false,
+    });
     console.log(selectedCity);
   });
 });
