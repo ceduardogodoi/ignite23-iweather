@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react-native';
 
 import { SelectList } from '@components/SelectList';
+import { View } from 'react-native';
 
 describe('Component: SelectList', () => {
   it('should return the selected city details', () => {
@@ -33,5 +34,18 @@ describe('Component: SelectList', () => {
     fireEvent.press(selectedCity);
 
     expect(onPress).toBeCalledWith(data[1]);
+  });
+
+  it('should not show options when data props is absent', () => {
+    render(
+      <SelectList
+        data={[]}
+        onChange={() => { }}
+        onPress={() => { }}
+      />
+    )
+
+    const options = screen.getByTestId('options');
+    expect(options.children).toHaveLength(0);
   });
 });
