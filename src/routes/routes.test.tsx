@@ -1,13 +1,18 @@
-import { render } from '@testing-library/react-native';
+import { Text } from 'react-native';
+import { render, screen, waitFor } from '@testing-library/react-native';
 
 import { Routes } from '.';
 
 describe('Routes', () => {
-  it('should render Search screen when there is no city selected', () => {
-    const { debug } = render(
+  it('should render Search screen when there is no city selected', async () => {
+    render(
       <Routes />
     );
 
-    debug();
+    const title: Text = await waitFor(() => {
+      return screen.findByText(/^escolha um local/i)
+    });
+
+    expect(title).toBeTruthy();
   });
 });
