@@ -1,4 +1,4 @@
-import { fireEvent, render, Providers, screen, waitFor } from '@__tests__/utils/customRender';
+import { fireEvent, render, screen, waitFor } from '@__tests__/utils/customRender';
 import { Search } from '@screens/Search';
 import { api } from '@services/api';
 import { mockCityAPIResponse } from '@__tests__/mocks/api/mockCityAPIResponse';
