@@ -1,14 +1,12 @@
 import { act, fireEvent, render, screen, waitFor, waitForElementToBeRemoved } from '@__tests__/utils/customRender';
+import { mockWeatherAPIResponse } from '@__tests__/mocks/api/mockWeatherAPIResponse';
+import { mockCityAPIResponse } from '@__tests__/mocks/api/mockCityAPIResponse';
 import { Dashboard } from '@screens/Dashboard';
 import { api } from '@services/api';
 import { saveStorageCity } from '@libs/asyncStorage/cityStorage';
-import { mockWeatherAPIResponse } from '@__tests__/mocks/api/mockWeatherAPIResponse';
-import { mockCityAPIResponse } from '@__tests__/mocks/api/mockCityAPIResponse';
 
 describe('Screen: Dashboard', () => {
-  it('should show a city weather', async () => {
-    jest.spyOn(api, 'get').mockResolvedValue({ data: mockWeatherAPIResponse });
-
+  beforeAll(async () => {
     const city = {
       id: '1',
       name: 'Rio do Sul',
@@ -17,6 +15,10 @@ describe('Screen: Dashboard', () => {
     };
 
     await saveStorageCity(city);
+  });
+
+  it('should show a city weather', async () => {
+    jest.spyOn(api, 'get').mockResolvedValue({ data: mockWeatherAPIResponse });
 
     render(
       <Dashboard />
@@ -27,15 +29,6 @@ describe('Screen: Dashboard', () => {
   });
 
   it('should show another selected city weather', async () => {
-    const city = {
-      id: '1',
-      name: 'Rio do Sul',
-      latitude: 123,
-      longitude: 456,
-    };
-
-    await saveStorageCity(city);
-
     // 1 - Busca informações do clima da cidade selecionada.
     // 2 - Busca informações da cidade.
     // 3 - Busca informações do clima da nova cidade selecionada.
