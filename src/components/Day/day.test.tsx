@@ -18,6 +18,6 @@ describe('Component: Day', () => {
       />
     );
 
-    expect(screen.getByText('32/07')).toBeTruthy();
+    expect(screen.getByText('18/07')).toBeTruthy();
   });
 });
