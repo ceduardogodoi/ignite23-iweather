@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@__tests__/utils/customRender';
+import { render, screen, waitFor, waitForElementToBeRemoved } from '@__tests__/utils/customRender';
 import { Dashboard } from '@screens/Dashboard';
 import { api } from '@services/api';
 import { saveStorageCity } from '@libs/asyncStorage/cityStorage';
@@ -44,6 +44,10 @@ describe('Screen: Dashboard', () => {
       .mockResolvedValueOnce({ data: mockCityAPIResponse })
       .mockResolvedValueOnce({ data: mockWeatherAPIResponse });
 
-    
+    render(<Dashboard />);
+
+    await waitForElementToBeRemoved(() => screen.queryByTestId("loading"));
+
+    screen.debug();
   });
 });
