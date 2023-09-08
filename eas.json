@@ -3,16 +3,13 @@
     "version": ">= 5.2.0"
   },
   "build": {
-    "development": {
-      "developmentClient": true,
-      "distribution": "internal"
-    },
     "preview": {
-      "distribution": "internal"
-    },
-    "production": {}
-  },
-  "submit": {
-    "production": {}
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_WEATHER_APP_ID": "2fcaf6c7594585eadfc29409d93c656a"
+      }
+    }
   }
 }
