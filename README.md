@@ -10,5 +10,5 @@ eas build -p android --profile preview --local
 eas build -p android --profile preview
 
 # Gerando build de produção
-eas build -p android --profile preview
+eas build -p android --profile production -m "Message"
 ```
