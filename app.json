@@ -11,11 +11,10 @@
       "resizeMode": "contain",
       "backgroundColor": "#13131A"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ceduardogodoi.iweather"
     },
     "android": {
       "adaptiveIcon": {
